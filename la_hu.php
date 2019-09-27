@@ -2,7 +2,7 @@
 	// Include config.php
 	include_once('config.php');
 
-	$la = isset($_GET['la']) ? $mysqli->real_escape_string(utf8_decode(urldecode($_GET['la']))) :  "";
+	$la = isset($_GET['la']) ? $mysqli->real_escape_string($_GET['la']) :  "";
 	if(!empty($la)){
 		if ($result = $mysqli->query("SELECT hungarian_expression FROM hungarian_latin WHERE latin_expression='$la'")) {
 			while($rows = $result->fetch_array(MYSQLI_ASSOC)) {
